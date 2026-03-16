@@ -16,12 +16,12 @@ export interface DefragConfig {
 }
 
 const DEFAULT_CONFIG: DefragConfig = {
-  gridWidth: 40,
-  gridHeight: 25,
+  gridWidth: 90,
+  gridHeight: 60,
   blockSize: 16,
   blockGap: 2,
-  readDelay: 100,
-  writeDelay: 100,
+  readDelay: 500,
+  writeDelay: 500,
   theme: WIN9X_THEME
 };
 
@@ -109,9 +109,9 @@ function DefragApp() {
       </button>
 
       {/* Main Canvas Area */}
-      <main class="flex-1 flex items-center justify-center p-8 overflow-auto">
+      <main class="flex-1 p-8 overflow-auto flex flex-col items-center">
         <div 
-          class="hard-border p-4 transition-colors duration-500" 
+          class="hard-border p-4 transition-colors duration-500 max-w-full" 
           style={{ backgroundColor: theme.backgroundColor === '#000000' ? '#09090b' : theme.backgroundColor }}
         >
           <DefragSketch engine={engine} config={config} />

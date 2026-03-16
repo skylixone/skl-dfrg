@@ -35,6 +35,13 @@ export function DefragSketch({ engine, config }: Props) {
           config.gridHeight * (blockSize + actualGap)
         );
         canvas.parent(containerRef.current!);
+        
+        // Ensure canvas respects container constraints
+        const canvasElement = canvas.elt as HTMLCanvasElement;
+        canvasElement.style.maxWidth = '100%';
+        canvasElement.style.height = 'auto';
+        canvasElement.style.display = 'block';
+        
         p.noStroke();
       };
 
@@ -78,8 +85,21 @@ export function DefragSketch({ engine, config }: Props) {
         config.gridWidth * (blockSize + actualGap),
         config.gridHeight * (blockSize + actualGap)
       );
+      
+      // Re-apply styles after resize
+      const canvasElt = (p5InstanceRef.current as any).canvas;
+      if (canvasElt) {
+        canvasElt.style.maxWidth = '100%';
+        canvasElt.style.height = 'auto';
+      }
     }
   }, [config.gridWidth, config.gridHeight, config.blockSize, config.blockGap, config.theme.id]);
 
-  return <div ref={containerRef} class="visual-pull" />;
+  return (
+    <div 
+      ref={containerRef} 
+      class="visual-pull w-full flex justify-center items-center overflow-hidden" 
+      style={{ maxHeight: 'calc(100vh - 4rem)' }}
+    />
+  );
 }
