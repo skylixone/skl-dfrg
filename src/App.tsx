@@ -111,7 +111,7 @@ function DefragApp() {
       <main class="flex-1 overflow-hidden flex items-center justify-center p-2 box-border">
         <div 
           class="hard-border p-2 transition-colors duration-500 max-w-full max-h-full flex items-center justify-center overflow-hidden" 
-          style={{ backgroundColor: theme.backgroundColor === '#000000' ? '#09090b' : theme.backgroundColor }}
+          style={{ backgroundColor: theme.backgroundColor }}
         >
           <DefragSketch engine={engine} config={config} />
         </div>

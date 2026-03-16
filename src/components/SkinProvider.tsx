@@ -27,14 +27,14 @@ export const WIN9X_THEME: Theme = {
   id: 'win9x',
   name: 'Windows 9x',
   colors: {
-    [BlockState.EMPTY]: "#18181b", // zinc-900
-    [BlockState.ALLOCATED]: "#3b82f6", // blue-500
-    [BlockState.FRAGMENTED]: "#1e40af", // blue-800
-    [BlockState.UNMOVABLE]: "#ef4444", // red-500
-    [BlockState.READING]: "#f59e0b", // amber-500
-    [BlockState.WRITING]: "#10b981", // emerald-500
+    [BlockState.EMPTY]: "#ffffff",
+    [BlockState.ALLOCATED]: "#000080", // Navy
+    [BlockState.FRAGMENTED]: "#ff0000", // Red
+    [BlockState.UNMOVABLE]: "#008000", // Green
+    [BlockState.READING]: "#ffff00", // Yellow
+    [BlockState.WRITING]: "#00ffff", // Cyan
   },
-  backgroundColor: "#000000",
+  backgroundColor: "#c0c0c0", // Silver/OS gray
   borderRadius: 0,
   blockGap: 2,
 };
