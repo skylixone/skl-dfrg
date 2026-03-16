@@ -180,7 +180,9 @@ export function SettingsSidebar({
                   onInput={(e) => handleColorChange(parseInt(state) as BlockState, e.currentTarget.value)}
                   class="w-6 h-6 bg-transparent border-none cursor-pointer"
                 />
-                <span class="text-[10px] uppercase text-zinc-500">{BlockState[parseInt(state)]}</span>
+                <span class="text-[10px] uppercase text-zinc-500">
+                  {Object.keys(BlockState).find(key => (BlockState as any)[key] === parseInt(state))}
+                </span>
               </div>
             ))}
           </div>
