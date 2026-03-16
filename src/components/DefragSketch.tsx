@@ -49,7 +49,7 @@ export function DefragSketch({ engine, config }: Props) {
           const y = Math.floor(i / config.gridWidth) * (blockSize + actualGap);
           
           const state = blocks[i];
-          const color = theme.colors[state];
+          const color = (theme.colors as any)[state];
           
           p.fill(color);
           if (theme.borderRadius > 0) {

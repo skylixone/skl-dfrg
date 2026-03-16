@@ -1,14 +1,16 @@
 import { createContext } from 'preact';
 import { useContext, useState, useEffect } from 'preact/hooks';
 
-export enum BlockState {
-  EMPTY = 0,
-  ALLOCATED = 1,
-  FRAGMENTED = 2,
-  UNMOVABLE = 3,
-  READING = 4,
-  WRITING = 5
-}
+export const BlockState = {
+  EMPTY: 0,
+  ALLOCATED: 1,
+  FRAGMENTED: 2,
+  UNMOVABLE: 3,
+  READING: 4,
+  WRITING: 5
+} as const;
+
+export type BlockState = typeof BlockState[keyof typeof BlockState];
 
 export type ThemeColors = Record<BlockState, string>;
 
