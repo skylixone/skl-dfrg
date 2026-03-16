@@ -36,10 +36,13 @@ export function DefragSketch({ engine, config }: Props) {
         );
         canvas.parent(containerRef.current!);
         
-        // Ensure canvas respects container constraints
+        // Final sanity styling for absolute fitting
         const canvasElement = canvas.elt as HTMLCanvasElement;
         canvasElement.style.maxWidth = '100%';
+        canvasElement.style.maxHeight = '100%';
+        canvasElement.style.width = 'auto';
         canvasElement.style.height = 'auto';
+        canvasElement.style.objectFit = 'contain';
         canvasElement.style.display = 'block';
         
         p.noStroke();
@@ -86,11 +89,13 @@ export function DefragSketch({ engine, config }: Props) {
         config.gridHeight * (blockSize + actualGap)
       );
       
-      // Re-apply styles after resize
       const canvasElt = (p5InstanceRef.current as any).canvas;
       if (canvasElt) {
         canvasElt.style.maxWidth = '100%';
+        canvasElt.style.maxHeight = '100%';
+        canvasElt.style.width = 'auto';
         canvasElt.style.height = 'auto';
+        canvasElt.style.objectFit = 'contain';
       }
     }
   }, [config.gridWidth, config.gridHeight, config.blockSize, config.blockGap, config.theme.id]);
@@ -98,8 +103,7 @@ export function DefragSketch({ engine, config }: Props) {
   return (
     <div 
       ref={containerRef} 
-      class="visual-pull w-full flex justify-center items-center overflow-hidden" 
-      style={{ maxHeight: 'calc(100vh - 4rem)' }}
+      class="w-full h-full flex justify-center items-center overflow-hidden" 
     />
   );
 }

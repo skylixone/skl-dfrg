@@ -39,9 +39,8 @@ function DefragApp() {
   const engine = useMemo(() => new DefragEngine(config), []);
 
   const forceUpdate = useCallback(() => {
-    // Component will re-render due to parent state changes or other triggers
-    // though for manual engine updates we might need a dummy state
-    setSidebarCollapsed(s => s); // Force re-render if needed
+    // Force re-render for engine state updates
+    setSidebarCollapsed(s => s);
   }, []);
 
   // Auto-start on mount
@@ -81,7 +80,7 @@ function DefragApp() {
   };
 
   return (
-    <div class="flex h-screen overflow-hidden transition-colors duration-500" style={{ backgroundColor: theme.backgroundColor }}>
+    <div class="flex h-screen w-screen overflow-hidden transition-colors duration-500" style={{ backgroundColor: theme.backgroundColor }}>
       {/* Sidebar Wrapper */}
       <div 
         className={`flex transition-all duration-300 ease-in-out ${isSidebarCollapsed ? 'w-0' : 'w-80'}`}
@@ -109,9 +108,9 @@ function DefragApp() {
       </button>
 
       {/* Main Canvas Area */}
-      <main class="flex-1 p-8 overflow-auto flex flex-col items-center">
+      <main class="flex-1 overflow-hidden flex items-center justify-center p-2 box-border">
         <div 
-          class="hard-border p-4 transition-colors duration-500 max-w-full" 
+          class="hard-border p-2 transition-colors duration-500 max-w-full max-h-full flex items-center justify-center overflow-hidden" 
           style={{ backgroundColor: theme.backgroundColor === '#000000' ? '#09090b' : theme.backgroundColor }}
         >
           <DefragSketch engine={engine} config={config} />
