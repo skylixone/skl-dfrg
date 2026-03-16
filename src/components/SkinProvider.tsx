@@ -10,9 +10,7 @@ export enum BlockState {
   WRITING = 5
 }
 
-export interface ThemeColors {
-  [key in BlockState]: string;
-}
+export type ThemeColors = Record<BlockState, string>;
 
 export class Theme {
   id: string = '';

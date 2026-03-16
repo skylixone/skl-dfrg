@@ -35,13 +35,13 @@ function DefragApp() {
     theme: theme
   }));
   
-  const [tick, setTick] = useState(0);
-
   // Initialize engine with initial config
   const engine = useMemo(() => new DefragEngine(config), []);
 
   const forceUpdate = useCallback(() => {
-    setTick(t => t + 1);
+    // Component will re-render due to parent state changes or other triggers
+    // though for manual engine updates we might need a dummy state
+    setSidebarCollapsed(s => s); // Force re-render if needed
   }, []);
 
   // Auto-start on mount
