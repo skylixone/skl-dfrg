@@ -1,0 +1,18 @@
+{
+  "workflow": {
+    "tdd": true,
+    "verify_in_browser": true,
+    "automated_roadmap": true
+  },
+  "preferences": {
+    "styling": "tailwind",
+    "theme": "dark",
+    "font": "Inter",
+    "all_caps_spacing": "0.05em",
+    "rhythm_of_entry": true
+  },
+  "stack": {
+    "frontend": "react",
+    "engine": "p5.js"
+  }
+}

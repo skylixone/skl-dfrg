@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --color-accent: #f59e0b;
+  --radius-none: 0px;
+}
+
+:root {
+  color-scheme: dark;
+  --bg: #09090b;
+  --fg: #fafafa;
+  --border: #27272a;
+  --accent: #f59e0b;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-mono);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* aerospace-ui specific overrides */
+* {
+  border-radius: 0 !important;
+}
+
+.hard-border {
+  border: 1px solid var(--border);
+}
+
+.strike-line {
+  padding-top: 1rem;
+  padding-left: 1rem;
+  /* Equal to external gap/margin between siblings */
+}
+
+/* tracked all-caps for labels */
+.label-tracked {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.75rem;
+  color: #71717a; /* zinc-400 */
+}
+
+/* Negative spacing for charts/visuals to pull toward text */
+.visual-pull {
+  margin-top: -0.5rem;
+}
